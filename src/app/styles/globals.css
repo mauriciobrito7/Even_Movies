@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #F30201;
+  --white: #ffffff;
+  --black: #050607;
+  --neutral-gray: #727377;
+  --neutral-gray-light: #31323580;
+  --neutral-gray-dark: #202025;
+  --8xl: 5.375rem;
+  --7xl: 4.5rem;
+  --6xl: 4.25rem;
+  --4xl: 3.5rem;
+  --h2xl: 3.375rem;
+  --3xl: 2.625rem;
+  --subtext: 2.25rem;
+  --2xl: 2rem;
+  --xl: 1.5rem;
+  --lg: 1.125rem;
+  --base: 1rem;
+  --sm: 0.875rem;
+  --xs: 0.75rem;
+}
+
+body {
+  color: var(--white);
+  background: var(--black);
+  font-family: var(--font-lato);
+}
