@@ -1,16 +1,16 @@
-import './styles/globals.css';
+import '../styles/globals.css';
 import { Lato } from 'next/font/google';
 
 const lato = Lato({
   weight: ['400', '700'],
   variable: '--font-lato',
-  subsets: ['latin']
+  subsets: ['latin'],
 });
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
     <html className={lato.variable} lang="en">

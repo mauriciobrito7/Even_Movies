@@ -6,8 +6,8 @@
   --primary: #F30201;
   --white: #ffffff;
   --black: #050607;
-  --neutral-gray: #727377;
-  --neutral-gray-light: #31323580;
+  --neutral-gray: #2b2c2f;
+  --neutral-gray-light: #ccc;
   --neutral-gray-dark: #202025;
   --8xl: 5.375rem;
   --7xl: 4.5rem;
@@ -28,4 +28,21 @@ body {
   color: var(--white);
   background: var(--black);
   font-family: var(--font-lato);
+}
+
+h1 {
+  font-size: var(--3xl);
+}
+
+h2 {
+  font-size: var(--2xl);
+}
+
+h3 {
+  font-size: var(--lg);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  line-height: 1.2;
 }
