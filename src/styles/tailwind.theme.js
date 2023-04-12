@@ -15,7 +15,7 @@ const customTheme = {
         DEFAULT: 'var(--white)',
       },
       neutral: {
-        'gray': 'var(--neutral-gray)',
+        gray: 'var(--neutral-gray)',
         'gray-dark': 'var(--neutral-gray-dark)',
         'gray-light': 'var(--neutral-gray-light)',
       },
