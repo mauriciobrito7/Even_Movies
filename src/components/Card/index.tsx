@@ -1,38 +1,86 @@
-import { IMovie } from '@/types';
-import { getMoviePosterURL } from '@/utils/movieInfo';
-import Image from 'next/image';
+import Link from 'next/link';
 
-export interface ICardProps {
-  item: IMovie;
+export enum CardVariant {
+  ITEM = 'ITEM',
+  HERO_BANNER = 'HERO_BANNER',
 }
 
-export const Card = ({ item }: ICardProps) => {
+export interface ICardProps {
+  variant?: CardVariant;
+  className?: string;
+  header?: JSX.Element;
+  main?: JSX.Element;
+  footer?: JSX.Element;
+  href?: string;
+}
+
+type VariantCssClasses = {
+  wrapper?: string;
+  container?: string;
+  header?: string;
+  main?: string;
+  footer?: string;
+};
+
+const CardCssClasses: Record<CardVariant, VariantCssClasses> = {
+  [CardVariant.ITEM]: {
+    container:
+      'flex flex-col bg-neutral-gray-dark border border-neutral-gray' +
+      ' shadow-neutral-gray p-1 sm:p-2 rounded-lg',
+    main: 'w-full h-60 relative',
+    footer: 'flex flex-wrap mt-4',
+  },
+  [CardVariant.HERO_BANNER]: {
+    container:
+      'flex flex-col bg-neutral-gray-dark border border-neutral-gray' +
+      ' shadow-neutral-gray p-1 sm:p-2 rounded-lg',
+    main: 'w-full h-60 relative',
+    footer: 'flex flex-wrap mt-4',
+  },
+};
+
+const getCardCssClasses = (
+  variant: CardVariant,
+  key: keyof VariantCssClasses
+): string => CardCssClasses[variant][key] ?? '';
+
+const Wrapper = ({
+  children,
+  url,
+}: {
+  children: React.ReactNode;
+  url?: string;
+}): JSX.Element => {
+  if (!url) return <>{children}</>;
+
+  return <Link href={url}>{children}</Link>;
+};
+
+export const Card = ({
+  className,
+  header,
+  main,
+  href,
+  variant = CardVariant.ITEM,
+  footer,
+}: ICardProps) => {
   return (
-    <article
-      className={
-        'flex flex-col bg-neutral-gray-dark border border-neutral-gray' +
-        ' shadow-neutral-gray p-1 sm:p-2 rounded-lg'
-      }
-    >
-      <div className="w-full h-60 relative">
-        <Image
-          src={`${getMoviePosterURL(
-            item.backdrop_path || item.poster_path || ''
-          )}`}
-          fill
-          alt=""
-          className="rounded-lg object-cover"
-          decoding="async"
-          loading="lazy"
-        />
-      </div>
-      <footer className="flex flex-wrap mt-4">
-        <h3 className="w-full mb-2 overflow-ellipsis whitespace-nowrap overflow-hidden">{item.title}</h3>
-        <p className="text-neutral-gray-light">
-          Release date: {item.release_date}
-        </p>
-        <p className="text-neutral-gray-light">Rating: {item.vote_average}</p>
-      </footer>
-    </article>
+    <Wrapper url={href}>
+      <article
+        className={`${getCardCssClasses(variant, 'container')} ${
+          className ?? ''
+        }`}
+      >
+        <section className={`${getCardCssClasses(variant, 'header')}`}>
+          {header && header}
+        </section>
+        <section className={`${getCardCssClasses(variant, 'main')}`}>
+          {main && main}
+        </section>
+        <footer className={`${getCardCssClasses(variant, 'footer')}`}>
+          {footer && footer}
+        </footer>
+      </article>
+    </Wrapper>
   );
 };

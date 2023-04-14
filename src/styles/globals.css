@@ -23,6 +23,10 @@
   --sm: 0.875rem;
   --xs: 0.75rem;
 }
+html,
+body {
+  height: 100%;
+}
 
 body {
   color: var(--white);
