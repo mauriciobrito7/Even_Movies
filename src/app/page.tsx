@@ -2,6 +2,13 @@ import { CardList } from '@/components/';
 import { getPeriodOfTime, getMovies } from '@/utils';
 import { Times } from '@/types';
 
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Even Movies',
+  description: 'Find popular movies and tv shows',
+};
+
 export default async function Home() {
   const { from, to = '' } = getPeriodOfTime(Times.LAST_MONTH);
 
@@ -15,7 +22,7 @@ export default async function Home() {
       {
         key: 'popularity',
         order: 'desc',
-      }
+      },
     ],
   });
 
@@ -24,9 +31,5 @@ export default async function Home() {
       new Date(b.release_date).getTime() - new Date(a.release_date).getTime()
   );
 
-  return (
-    <main className="flex justify-center w-full mx-auto max-w-screen-xl">
-      <CardList title="Last Month Movies" items={movies} />
-    </main>
-  );
+  return <CardList title="Last Month Movies" items={movies} />;
 }
