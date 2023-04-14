@@ -1,7 +1,7 @@
 import { IMovie } from '@/types/movie';
 import { Card } from '../Card';
 import { ROUTES } from '@/constants';
-import { getMoviePosterURL } from '@/utils/movieInfo';
+import { getMoviePosterURL } from '@/utils/titleInfo';
 import Image from 'next/image';
 interface ICardProps {
   items: IMovie[];
