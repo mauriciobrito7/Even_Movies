@@ -14,7 +14,11 @@ export default function RootLayout({
 }) {
   return (
     <html className={lato.variable} lang="en">
-      <body>{children}</body>
+      <body>
+      <main className="flex justify-center w-full mx-auto max-w-screen-xl">
+        {children}
+      </main>
+      </body>
     </html>
   );
 }
