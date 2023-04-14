@@ -10,6 +10,7 @@ const customTheme = {
     colors: {
       primary: {
         DEFAULT: 'var(--primary)',
+        dark: 'var(--primary-dark)'
       },
       white: {
         DEFAULT: 'var(--white)',
@@ -18,7 +19,7 @@ const customTheme = {
         gray: 'var(--neutral-gray)',
         'gray-dark': 'var(--neutral-gray-dark)',
         'gray-light': 'var(--neutral-gray-light)',
-      },
+      }
     },
     fontFamily: {
       lato: ['var(--font-lato)'],

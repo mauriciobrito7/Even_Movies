@@ -4,9 +4,10 @@
 
 :root {
   --primary: #F30201;
+  --primary-dark: #F3020180;
   --white: #ffffff;
   --black: #050607;
-  --neutral-gray: #2b2c2f;
+  --neutral-gray: #27272d;
   --neutral-gray-light: #ccc;
   --neutral-gray-dark: #202025;
   --8xl: 5.375rem;
@@ -23,6 +24,7 @@
   --sm: 0.875rem;
   --xs: 0.75rem;
 }
+
 html,
 body {
   height: 100%;
@@ -46,7 +48,12 @@ h3 {
   font-size: var(--lg);
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-weight: 700;
   line-height: 1.2;
 }
