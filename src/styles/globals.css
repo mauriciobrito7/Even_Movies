@@ -57,3 +57,19 @@ h6 {
   font-weight: 700;
   line-height: 1.2;
 }
+
+::-webkit-scrollbar {
+  inline-size: .5rem;
+  block-size: .5rem;
+}
+
+::-webkit-scrollbar-thumb {
+  background:var(--neutral-gray-light);
+  border-radius: 1rem;
+  height: 35%;
+}
+
+::-webkit-scrollbar-track {
+  background:var(--neutral-gray);
+  border-radius: 1rem;
+}
