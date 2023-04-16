@@ -6,8 +6,8 @@ export const getMoviesInfoURL = () => `
 export const getMovieInfoURL = (id: string) => 
 `${process.env.NEXT_PUBLIC_BASE_MOVIE_URL}movie/${id}?api_key=${process.env.NEXT_PUBLIC_MOVIE_API_KEY}`;
 
-export const getMoviePosterURL = (posterPath: string) =>
-  `${process.env.NEXT_PUBLIC_MOVIE_POSTER_URL}${posterPath}`;
+export const getImageURL = (imagePath: string) =>
+  `${process.env.NEXT_PUBLIC_IMAGE_URL}${imagePath}`;
 
 export const getMovieCreditsURL = (id: string) =>
   `${
@@ -23,7 +23,7 @@ export async function getMovies( options?: IMovieOptions): Promise<IMovie[]> {
     if (releaseDate) {
       params['primary_release_date.gte'] = releaseDate.from;
       params['primary_release_date.lte'] = releaseDate.to;
-    }
+    }  
 
     if (sortBy) {
       params.sort_by = sortBy

@@ -1,6 +1,6 @@
 import { CardList } from '@/components/';
 import { getPeriodOfTime, getMovies } from '@/utils';
-import { Times } from '@/types';
+import { Time } from '@/types';
 
 import { Metadata } from 'next';
 
@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 };
 
 export default async function Home() {
-  const { from, to = '' } = getPeriodOfTime(Times.LAST_MONTH);
+  const { from, to = '' } = getPeriodOfTime(Time.LAST_MONTH);
 
   const movies = await getMovies({
     language: 'en-US',

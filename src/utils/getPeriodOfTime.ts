@@ -1,13 +1,13 @@
-import { Times } from '@/types';
+import { Time } from '@/types';
 
-export const getPeriodOfTime = (period?: Times): {
+export const getPeriodOfTime = (period?: Time): {
   from: string;
   to?: string;
 } => {
   const today = new Date();
   
   switch (period) {
-    case Times.LAST_MONTH:
+    case Time.LAST_MONTH:
       {
         const from = 
           new Date(today.getFullYear(), today.getMonth() - 1, 1).toISOString().split('T')[0];

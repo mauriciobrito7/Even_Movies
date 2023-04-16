@@ -1,7 +1,7 @@
 import { IMovie } from '@/types/movie';
 import { Card } from '../Card';
 import { ROUTES } from '@/constants';
-import { getMoviePosterURL } from '@/utils/titleInfo';
+import { getImageURL } from '@/utils';
 import Image from 'next/image';
 interface ICardProps {
   items: IMovie[];
@@ -18,16 +18,14 @@ export const CardList = ({ title, items }: ICardProps) => {
           <Card
             main={
               <Image
-                src={`${getMoviePosterURL(
+                src={`${getImageURL(
                   item.backdrop_path || item.poster_path || ''
                 )}`}
-                fill
                 alt={item.title}
-                className="rounded-lg object-cover"
+                className="rounded-lg object-cover w-full h-full"
                 priority
-                sizes="(max-width: 768px) 100vw,
-              (max-width: 1200px) 50vw,
-              33vw"
+                width={480}
+                height={480}
               />
             }
             footer={

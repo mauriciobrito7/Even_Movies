@@ -1,5 +1,11 @@
-import { getMovieById, getMoviePosterURL, formatCurrency } from '@/utils';
-import { HeroBanner, Card, CardVariant } from '@/components';
+import {
+  getMovieById,
+  getImageURL,
+  formatCurrency,
+  getMovieCast,
+} from '@/utils';
+import { Card, CardVariant, HeroBanner } from '@/components';
+import { Slider } from '@/components/Slider';
 import { BuyButton } from './BuyButton';
 import Image from 'next/image';
 import { CURRENCIES } from '@/constants';
@@ -19,13 +25,22 @@ export async function generateMetadata({ params }: IMovieTitle) {
   };
 }
 
+const price = 10;
+
 export default async function MovieTitle({ params }: IMovieTitle) {
   const { id } = params;
   const { locale, currency } = CURRENCIES.argentina;
-  const price = 10;
   const movie = await getMovieById(id);
+  const cast = await getMovieCast(id);
 
-  const titleImage = `${getMoviePosterURL(
+  const imagesCast = cast.reduce((list: string[], character: any) => {
+    if (character.profile_path) {
+      list = [...list, `${getImageURL(character.profile_path)}`];
+    }
+    return list;
+  }, []);
+
+  const titleImage = `${getImageURL(
     movie.backdrop_path || movie.poster_path || ''
   )}`;
 
@@ -54,6 +69,7 @@ export default async function MovieTitle({ params }: IMovieTitle) {
       <HeroBanner
         card={
           <Card
+            className="sm:pr-24"
             variant={CardVariant.HERO_BANNER}
             main={
               <>
@@ -72,16 +88,18 @@ export default async function MovieTitle({ params }: IMovieTitle) {
           />
         }
         image={
-          <div className="relative w-100	h-100">
+          <div>
             <Image
               src={titleImage}
-              fill
+              width={750}
+              height={750}
               alt={movie.title}
-              className="object-cover rounded-3xl"
+              className="rounded-3xl object-cover sm:-ml-10 sm:scale-110"
               priority
             />
           </div>
         }
+        slider={<Slider imagesURL={imagesCast} title="Top Cast" />}
       />
     </>
   );
