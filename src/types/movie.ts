@@ -13,7 +13,7 @@ export interface IMovie {
   video: boolean;
   vote_average: number;
   vote_count: number;
-}
+};
 
 export interface IMovieOptions {
   language?: 'en-US' | 'es-ES';
@@ -26,4 +26,4 @@ export interface IMovieOptions {
     to: string;
   };
   minVoteCount?: number;
-}
+};

@@ -1,3 +1,3 @@
-export enum Times {
+export enum Time {
  LAST_MONTH = 'lastMonth',
-}
+};
