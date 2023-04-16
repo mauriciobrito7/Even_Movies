@@ -1,15 +1,17 @@
 export interface IHeroBanner {
   card?: JSX.Element;
   image?: JSX.Element;
+  slider?: JSX.Element;
 }
 
-export const HeroBanner = ({ card, image }: IHeroBanner) => {
+export const HeroBanner = ({ card, image, slider }: IHeroBanner) => {
   return (
-    <header className=" w-full p-8 ">
-      <div className="z-10 w-full flex flex-wrap justify-between items-center">
+    <div className=" w-full p-8 ">
+      <div className="z-10 w-full flex justify-between items-center">
         {card && card}
         {image && image}
+        {slider && slider}
       </div>
-    </header>
+    </div>
   );
 };
