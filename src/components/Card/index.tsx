@@ -33,8 +33,8 @@ const CardCssClasses: Record<CardVariant, VariantCssClasses> = {
   [CardVariant.HERO_BANNER]: {
     container:
       'flex flex-col justify-between bg-gradient-to-b from-neutral-gray to-neutral-gray-dark' +
-      ' border border-neutral-gray shadow-neutral-gray rounded-lg max-w-xl h-108 p-12',
-    main: 'flex flex-col gap-4 w-full mt-8',
+      ' border border-neutral-gray shadow-neutral-gray rounded-lg max-w-xl min-h-108 p-12',
+    main: 'flex flex-col gap-4 w-full mt-8 mb-8',
     footer:
       'flex justify-between items-center py-6 px-10 bg-neutral-gray rounded-2xl border border-neutral-gray',
   },
