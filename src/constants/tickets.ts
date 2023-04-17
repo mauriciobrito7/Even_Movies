@@ -1,9 +1,9 @@
 import { ITicket } from '@/types/ticket';
 
 export const TICKET_OPTIONS: ITicket[] = [
-  { type: 'Child', price: 5 },
-  { type: 'Senior', price: 7 },
-  { type: 'Adult', price: 10 },
+  { type: 'child', price: 5 },
+  { type: 'senior', price: 7 },
+  { type: 'adult', price: 10 },
 ];
 
 export const MAX_TICKET_COUNT = 10;

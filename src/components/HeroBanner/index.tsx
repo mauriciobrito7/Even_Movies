@@ -14,7 +14,7 @@ export const HeroBanner = ({ className, card, image, slider }: IHeroBanner) => {
   const isTablet = windowWidth <= breakpoints.desktop;
   return (
     <div
-      className={`w-full p-8 mt-10 z-10 flex justify-between items-center ${
+      className={`w-full p-8 mt-10 flex justify-between items-center ${
         !isTablet ? '' : 'flex-wrap gap-8'
       }
         ${className ?? ''}

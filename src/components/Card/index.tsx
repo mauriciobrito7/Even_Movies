@@ -33,10 +33,11 @@ const CardCssClasses: Record<CardVariant, VariantCssClasses> = {
   [CardVariant.HERO_BANNER]: {
     container:
       'flex flex-col justify-between bg-gradient-to-b from-neutral-gray to-neutral-gray-dark' +
-      ' border border-neutral-gray shadow-neutral-gray rounded-lg w-full lg:max-w-xl min-h-108 p-12',
+      ' p-8 border border-neutral-gray shadow-neutral-gray rounded-lg w-full lg:p-12 lg:max-w-xl min-h-108 ',
     main: 'flex flex-col gap-4 w-full mt-8 mb-8',
     footer:
-      'flex justify-between items-center py-6 px-10 bg-neutral-gray rounded-2xl border border-neutral-gray',
+      'flex flex-wrap md:flex-nowrap gap-4 justify-center md:justify-between items-center' +
+      ' p-4 md:py-6 md:px-10 bg-neutral-gray rounded-2xl border border-neutral-gray',
   },
 };
 

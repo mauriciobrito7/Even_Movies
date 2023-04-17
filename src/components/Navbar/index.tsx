@@ -26,7 +26,7 @@ export const Navbar = () => {
 
   return (
     <div
-      className={`flex items-center w-full h-20 fixed z-50 top-0 px-8 ${
+      className={`flex items-center w-full h-20 fixed z-20 top-0 px-8 ${
         scrolled ? 'bg-black-transparent backdrop-blur' : 'bg-transparent'
       }`}
     >

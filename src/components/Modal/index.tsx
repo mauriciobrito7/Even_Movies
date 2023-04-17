@@ -8,6 +8,7 @@ export enum ModalSize {
   LARGE = 'large',
   XLARGE = 'xlarge',
   XXLARGE = '2xlarge',
+  XXXLARGE = '3xlarge',
   FULL = 'full',
 }
 
@@ -20,11 +21,12 @@ export interface IModalProps {
 }
 
 const ModalSizeCss: Record<ModalSize, string> = {
-  [ModalSize.SMALL]: ' max-w-sm',
-  [ModalSize.MEDIUM]: ' max-w-md',
-  [ModalSize.LARGE]: ' max-w-lg',
-  [ModalSize.XLARGE]: 'max-w-xl',
-  [ModalSize.XXLARGE]: 'max-w-2xl',
+  [ModalSize.SMALL]: 'w-full md:w-96 lg:w-100 xl:w-104',
+  [ModalSize.MEDIUM]: 'w-full md:w-100 lg:w-104 xl:w-108',
+  [ModalSize.LARGE]: 'w-full md:w-104 lg:w-108 xl:w-112',
+  [ModalSize.XLARGE]: 'w-full md:w-108 lg:w-112 xl:w-116',
+  [ModalSize.XXLARGE]: 'w-full md:w-112 lg:116 xl:w-120',
+  [ModalSize.XXXLARGE]: 'w-full md:w-116 lg:w-120 xl:w-124',
   [ModalSize.FULL]: ' w-full',
 };
 
@@ -32,7 +34,7 @@ export const Modal = ({
   isOpen,
   onClose,
   children,
-  size = ModalSize.XXLARGE,
+  size = ModalSize.XXXLARGE,
   className,
 }: IModalProps) => {
   useEffect(() => {
@@ -74,7 +76,7 @@ export const Modal = ({
 
   return (
     <div
-      className="fixed z-50 inset-0 flex items-center justify-center p-4 bg-black-transparent backdrop-blur"
+      className="fixed z-50 inset-0 flex items-center justify-center bg-black-transparent backdrop-blur"
       onClick={handleClickOutside}
       tabIndex={0}
       role="button"
@@ -82,8 +84,10 @@ export const Modal = ({
     >
       <div
         className={`
-          p-6 bg-gradient-to-b from-neutral-gray to-neutral-gray-dark
-          rounded-lg border border-neutral-gray shadow-lg ${className ?? ''}
+          z-50 h-full p-6 lg:p-8 xl:p-12 bg-gradient-to-b from-neutral-gray to-neutral-gray-dark
+          md:rounded-lg md:h-auto border border-neutral-gray shadow-lg ${
+            className ?? ''
+          }
           ${ModalSizeCss[size]}
         `}
       >

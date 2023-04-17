@@ -29,7 +29,7 @@ const price = 10;
 
 export default async function MovieTitle({ params }: IMovieTitle) {
   const { id } = params;
-  const { locale, currency } = CURRENCIES.argentina;
+  const { locale, currency } = CURRENCIES.unitedStates;
   const movie = await getMovieById(id);
   const cast = await getMovieCast(id);
 
@@ -41,15 +41,15 @@ export default async function MovieTitle({ params }: IMovieTitle) {
     titleImage.length > 0 ? (
       <>
         <Image
-          className="absolute inset-0 -z-10 w-full h-full min-w-full min-h-screen object-cover"
+          className="absolute inset-0 -z-20 w-full h-full min-w-full min-h-screen object-cover"
           fill
           src={titleImage}
           alt={`movie ${movie.title}`}
         />
         <div
           className={
-            'absolute inset-0 w-full h-full bg-gradient-to-b ' +
-            'from-[#050607B3] from-10% via-[#070605] via-45% to-[#000000fb] to-80%'
+            'absolute inset-0 -z-10 w-full h-full bg-gradient-to-b ' +
+            'from-[#050607B3] from-10% via-[#070605] via-55% to-[#000000fd] to-100%'
           }
         />
       </>
