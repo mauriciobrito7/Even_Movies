@@ -39,21 +39,20 @@ export default async function MovieTitle({ params }: IMovieTitle) {
 
   const Background = () =>
     titleImage.length > 0 ? (
-      <div className="-z-20 absolute inset-0 ">
+      <>
+        <Image
+          className="absolute inset-0 -z-10 w-full h-full min-w-full min-h-screen object-cover"
+          fill
+          src={titleImage}
+          alt={`movie ${movie.title}`}
+        />
         <div
           className={
-            'w-full h-full bg-gradient-to-b ' +
-            'from-[#050607B3] from-10% via-[#050607D4] via-60% to-[#000000f8] to-80%'
+            'absolute inset-0 w-full h-full bg-gradient-to-b ' +
+            'from-[#050607B3] from-10% via-[#070605] via-45% to-[#000000fb] to-80%'
           }
-        >
-          <Image
-            className="opacity-50 -z-10 object-cover"
-            fill
-            src={titleImage}
-            alt=""
-          />
-        </div>
-      </div>
+        />
+      </>
     ) : null;
 
   return (
@@ -72,7 +71,7 @@ export default async function MovieTitle({ params }: IMovieTitle) {
             }
             footer={
               <>
-                <p className="sm:basis-4/12 text-xl">
+                <p className="md:basis-4/12 text-xl">
                   From{' '}
                   {formatCurrency(
                     locale,
