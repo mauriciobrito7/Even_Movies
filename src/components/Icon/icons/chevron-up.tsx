@@ -1,7 +1,7 @@
 export const ChevronUp = (
   props: JSX.IntrinsicAttributes & React.SVGProps<SVGSVGElement>
 ) => (
-   <svg
+  <svg
     xmlns="http://www.w3.org/2000/svg"
     aria-hidden="true"
     data-icon="chevron-up"

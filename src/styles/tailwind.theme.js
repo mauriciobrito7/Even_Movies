@@ -10,16 +10,20 @@ const customTheme = {
     colors: {
       primary: {
         DEFAULT: 'var(--primary)',
-        dark: 'var(--primary-dark)'
+        dark: 'var(--primary-dark)',
       },
       white: {
         DEFAULT: 'var(--white)',
+      },
+      black: {
+        DEFAULT: 'var(--black)',
+        transparent: 'var(--black-transparent)',
       },
       neutral: {
         gray: 'var(--neutral-gray)',
         'gray-dark': 'var(--neutral-gray-dark)',
         'gray-light': 'var(--neutral-gray-light)',
-      }
+      },
     },
     fontFamily: {
       lato: ['var(--font-lato)'],
@@ -40,45 +44,45 @@ const customTheme = {
       xs: 'var(--xs)',
     },
     height: {
-      '100': '28rem', // 448px
-      '104': '32rem', // 512px
-      '108': '36rem', // 576px
-      '112': '40rem', // 640px
-      '116': '44rem', // 704px
-      '120': '48rem', // 768px
-      '124': '52rem', // 832px
-      '128': '56rem', // 896px
+      100: '28rem', // 448px
+      104: '32rem', // 512px
+      108: '36rem', // 576px
+      112: '40rem', // 640px
+      116: '44rem', // 704px
+      120: '48rem', // 768px
+      124: '52rem', // 832px
+      128: '56rem', // 896px
     },
     width: {
-      '100': '28rem', // 448px
-      '104': '32rem', // 512px
-      '108': '36rem', // 576px
-      '112': '40rem', // 640px
-      '116': '44rem', // 704px
-      '120': '48rem', // 768px
-      '124': '52rem', // 832px
-      '128': '56rem', // 896px
+      100: '28rem', // 448px
+      104: '32rem', // 512px
+      108: '36rem', // 576px
+      112: '40rem', // 640px
+      116: '44rem', // 704px
+      120: '48rem', // 768px
+      124: '52rem', // 832px
+      128: '56rem', // 896px
     },
     minHeight: {
-      '100': '28rem', // 448px
-      '104': '32rem', // 512px
-      '108': '36rem', // 576px
-      '112': '40rem', // 640px
-      '116': '44rem', // 704px
-      '120': '48rem', // 768px
-      '124': '52rem', // 832px
-      '128': '56rem', // 896px
+      100: '28rem', // 448px
+      104: '32rem', // 512px
+      108: '36rem', // 576px
+      112: '40rem', // 640px
+      116: '44rem', // 704px
+      120: '48rem', // 768px
+      124: '52rem', // 832px
+      128: '56rem', // 896px
     },
     maxHeight: {
-      '100': '28rem', // 448px
-      '104': '32rem', // 512px
-      '108': '36rem', // 576px
-      '112': '40rem', // 640px
-      '116': '44rem', // 704px
-      '120': '48rem', // 768px
-      '124': '52rem', // 832px
-      '128': '56rem', // 896px
-    }
+      100: '28rem', // 448px
+      104: '32rem', // 512px
+      108: '36rem', // 576px
+      112: '40rem', // 640px
+      116: '44rem', // 704px
+      120: '48rem', // 768px
+      124: '52rem', // 832px
+      128: '56rem', // 896px
+    },
   },
 };
 

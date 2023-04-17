@@ -3,18 +3,16 @@ export const getMoviesInfoURL = () => `
   ${process.env.NEXT_PUBLIC_BASE_MOVIE_URL}discover/movie?api_key=${process.env.NEXT_PUBLIC_MOVIE_API_KEY}
 `;
 
-export const getMovieInfoURL = (id: string) => 
-`${process.env.NEXT_PUBLIC_BASE_MOVIE_URL}movie/${id}?api_key=${process.env.NEXT_PUBLIC_MOVIE_API_KEY}`;
+export const getMovieInfoURL = (id: string) =>
+  `${process.env.NEXT_PUBLIC_BASE_MOVIE_URL}movie/${id}?api_key=${process.env.NEXT_PUBLIC_MOVIE_API_KEY}`;
 
 export const getImageURL = (imagePath: string) =>
   `${process.env.NEXT_PUBLIC_IMAGE_URL}${imagePath}`;
 
 export const getMovieCreditsURL = (id: string) =>
-  `${
-    process.env.NEXT_PUBLIC_BASE_MOVIE_URL
-  }movie/${id}/credits?api_key=${process.env.NEXT_PUBLIC_MOVIE_API_KEY}`;
+  `${process.env.NEXT_PUBLIC_BASE_MOVIE_URL}movie/${id}/credits?api_key=${process.env.NEXT_PUBLIC_MOVIE_API_KEY}`;
 
-export async function getMovies( options?: IMovieOptions): Promise<IMovie[]> {
+export async function getMovies(options?: IMovieOptions): Promise<IMovie[]> {
   try {
     const { language, sortBy, releaseDate, minVoteCount } = options || {};
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -23,7 +21,7 @@ export async function getMovies( options?: IMovieOptions): Promise<IMovie[]> {
     if (releaseDate) {
       params['primary_release_date.gte'] = releaseDate.from;
       params['primary_release_date.lte'] = releaseDate.to;
-    }  
+    }
 
     if (sortBy) {
       params.sort_by = sortBy
@@ -76,7 +74,6 @@ export const getMovieById = async (id: string): Promise<IMovie> => {
     throw error;
   }
 };
-
 
 export async function getMovieCast(id: string): Promise<any> {
   const res = await fetch(getMovieCreditsURL(id));

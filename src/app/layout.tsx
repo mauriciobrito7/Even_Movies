@@ -1,5 +1,6 @@
 import '../styles/globals.css';
 import { Lato } from 'next/font/google';
+import { Navbar } from '@/components/Navbar';
 
 const lato = Lato({
   weight: ['400', '700'],
@@ -15,9 +16,10 @@ export default function RootLayout({
   return (
     <html className={lato.variable} lang="en">
       <body>
-      <main className="flex justify-center w-full mx-auto max-w-screen-xl">
-        {children}
-      </main>
+        <Navbar />
+        <main className="flex justify-center w-full mx-auto max-w-screen-xl mt-20">
+          {children}
+        </main>
       </body>
     </html>
   );
