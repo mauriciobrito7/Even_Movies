@@ -31,5 +31,9 @@ export default async function Home() {
       new Date(b.release_date).getTime() - new Date(a.release_date).getTime()
   );
 
-  return <CardList title="Last Month Movies" items={movies} />;
+  return (
+    <>
+      <CardList title="Last Month Movies" items={movies} />
+    </>
+  );
 }
