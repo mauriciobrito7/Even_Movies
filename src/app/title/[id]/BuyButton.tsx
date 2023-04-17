@@ -94,7 +94,7 @@ export const BuyButton = ({ item }: IBuyButtonProps) => {
             {TICKET_OPTIONS.map((ticket) => (
               <div key={ticket.type} className="w-full flex mb-4">
                 <div className="flex justify-center items-center w-1/2">
-                  <span className=" mr-2 font-bold">{ticket.type}</span>
+                  <span className=" mr-2 font-bold capitalize">{ticket.type}</span>
                   {formatCurrency(locale, currency, ticket.price, 2)}
                 </div>
                 <div className="flex w-1/2 justify-center items-center">

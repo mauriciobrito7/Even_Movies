@@ -72,7 +72,7 @@ export default async function MovieTitle({ params }: IMovieTitle) {
             footer={
               <>
                 <p className="md:basis-4/12 text-xl">
-                  From{' '}
+                  <span className="text-neutral-gray-light">From </span>
                   {formatCurrency(
                     locale,
                     currency,
