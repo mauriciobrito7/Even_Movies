@@ -62,7 +62,7 @@ export default async function MovieTitle({ params }: IMovieTitle) {
       <HeroBanner
         card={
           <Card
-            className="sm:pr-24"
+            className="md:pr-24"
             variant={CardVariant.HERO_BANNER}
             main={
               <>
