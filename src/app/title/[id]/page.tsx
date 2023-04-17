@@ -8,7 +8,7 @@ import { Card, CardVariant, HeroBanner } from '@/components';
 import { Slider } from '@/components/Slider';
 import { BuyButton } from './BuyButton';
 import Image from 'next/image';
-import { CURRENCIES } from '@/constants';
+import { CURRENCIES, TICKET_OPTIONS } from '@/constants';
 
 interface IMovieTitle {
   params: {
@@ -29,7 +29,7 @@ const price = 10;
 
 export default async function MovieTitle({ params }: IMovieTitle) {
   const { id } = params;
-  const { locale, currency } = CURRENCIES.argentina;
+  const { locale, currency } = CURRENCIES.unitedStates;
   const movie = await getMovieById(id);
   const cast = await getMovieCast(id);
 
@@ -39,21 +39,20 @@ export default async function MovieTitle({ params }: IMovieTitle) {
 
   const Background = () =>
     titleImage.length > 0 ? (
-      <div className="-z-20 absolute inset-0 ">
+      <>
+        <Image
+          className="absolute inset-0 -z-20 w-full h-full min-w-full min-h-screen object-cover"
+          fill
+          src={titleImage}
+          alt={`movie ${movie.title}`}
+        />
         <div
           className={
-            'w-full h-full bg-gradient-to-b ' +
-            'from-[#050607B3] from-10% via-[#050607D4] via-45% to-[#050607F2] to-60%'
+            'absolute inset-0 -z-10 w-full h-full bg-gradient-to-b ' +
+            'from-[#050607B3] from-10% via-[#070605] via-55% to-[#000000fd] to-100%'
           }
-        >
-          <Image
-            className="opacity-50 -z-10 object-cover"
-            fill
-            src={titleImage}
-            alt=""
-          />
-        </div>
-      </div>
+        />
+      </>
     ) : null;
 
   return (
@@ -62,7 +61,7 @@ export default async function MovieTitle({ params }: IMovieTitle) {
       <HeroBanner
         card={
           <Card
-            className="md:pr-24"
+            className="!w-full lg:w-auto lg:pr-24 "
             variant={CardVariant.HERO_BANNER}
             main={
               <>
@@ -72,22 +71,28 @@ export default async function MovieTitle({ params }: IMovieTitle) {
             }
             footer={
               <>
-                <p className="sm:basis-4/12 text-xl">
-                  {formatCurrency(locale, currency, price, 2)}
+                <p className="md:basis-4/12 text-xl">
+                  <span className="text-neutral-gray-light">From </span>
+                  {formatCurrency(
+                    locale,
+                    currency,
+                    TICKET_OPTIONS[0].price || price,
+                    2
+                  )}
                 </p>
-                <BuyButton itemId={id} />
+                <BuyButton item={movie} />
               </>
             }
           />
         }
         image={
-          <div>
+          <div className="w-full">
             <Image
               src={titleImage}
               width={750}
               height={750}
               alt={movie.title}
-              className="rounded-3xl object-cover sm:-ml-10 sm:scale-110"
+              className="rounded-3xl object-cover w-full lg:-ml-10 lg:scale-110"
               priority
             />
           </div>

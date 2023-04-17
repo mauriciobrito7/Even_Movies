@@ -15,10 +15,10 @@ export default function RootLayout({
 }) {
   return (
     <html className={lato.variable} lang="en">
-      <body>
+      <body className="relative">
         <Navbar />
-        <main className="flex justify-center w-full mx-auto max-w-screen-2xl mt-20">
-          {children}
+        <main className="flex justify-center w-full mx-auto max-w-screen-2xl">
+          <div className="flex w-full mt-20">{children}</div>
         </main>
       </body>
     </html>

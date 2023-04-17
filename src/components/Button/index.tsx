@@ -3,6 +3,7 @@ import { AssetPosition } from '@/types';
 
 export enum ButtonVariant {
   PRIMARY = 'PRIMARY',
+  SECONDARY = 'SECONDARY',
   ICON = 'ICON',
 }
 
@@ -27,9 +28,14 @@ type VariantCssClasses = {
 const ButtonCssClasses: Record<ButtonVariant, VariantCssClasses> = {
   [ButtonVariant.PRIMARY]: {
     container:
-      'bg-gradient-to-r from-primary to-primary-dark drop-shadow-lg inline-flex items-center' +
-      ' justify-center text-white rounded-2xl h-14 w-full px-2 hover:bg-primary-dark transition duration-300',
+      'w-full bg-gradient-to-r from-primary to-primary-dark drop-shadow-lg inline-flex items-center' +
+      ' justify-center text-white rounded-2xl h-14 px-2 hover:bg-primary-dark transition duration-300',
     label: 'font-bold ',
+  },
+  [ButtonVariant.SECONDARY]: {
+    container:
+      'bg-white border text-black border-neutral-gray rounded-2xl h-14 w-full px-2',
+    label: 'font-bold',
   },
   [ButtonVariant.ICON]: {
     container:

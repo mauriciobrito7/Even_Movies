@@ -2,6 +2,8 @@ import { ChevronUp } from './icons/chevron-up';
 import { ChevronDown } from './icons/chevron-down';
 import { ChevronRight } from './icons/chevron-right';
 import { ChevronLeft } from './icons/chevron-left';
+import { Plus } from './icons/plus';
+import { Minus } from './icons/minus';
 
 export enum IconSize {
   XSMALL = 'xsmall',
@@ -15,6 +17,8 @@ export enum IconType {
   CHEVRON_DOWN = 'chevronDown',
   CHEVRON_LEFT = 'chevronLeft',
   CHEVRON_RIGHT = 'chevronRight',
+  MINUS = 'minus',
+  PLUS = 'plus',
 }
 
 export interface IconProps extends React.SVGProps<SVGSVGElement> {
@@ -22,7 +26,7 @@ export interface IconProps extends React.SVGProps<SVGSVGElement> {
   size?: IconSize;
 }
 
-export const iconSizeValues: Record<IconSize, number> = {
+const iconSizeValues: Record<IconSize, number> = {
   xsmall: 16,
   small: 20,
   medium: 24,
@@ -37,6 +41,8 @@ export const icons: Record<
   chevronDown: (props) => <ChevronDown role="img" {...props} />,
   chevronLeft: (props) => <ChevronLeft role="img" {...props} />,
   chevronRight: (props) => <ChevronRight role="img" {...props} />,
+  plus: (props) => <Plus role="img" {...props} />,
+  minus: (props) => <Minus role="img" {...props} />,
 };
 
 export const Icon = ({

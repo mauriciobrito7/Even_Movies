@@ -74,7 +74,7 @@ export const Slider = ({ title, cast, orientation = 'vertical' }: ISlider) => {
     <div
       className={`
         bg-gradient-to-b from-neutral-gray to-neutral-gray-dark 
-        rounded-3xl p-8 flex flex-wrap ${containerClass}
+        rounded-3xl px-4 py-8 lg:px-8 flex flex-wrap ${containerClass}
       `}
     >
       {title && <h3 className="text-center w-full mb-6 lg:mb-0">{title}</h3>}
@@ -117,7 +117,9 @@ export const Slider = ({ title, cast, orientation = 'vertical' }: ISlider) => {
         </div>
         <Button
           handleClick={nextSlide}
-          iconType={isHorizontal? IconType.CHEVRON_RIGHT :IconType.CHEVRON_DOWN}
+          iconType={
+            isHorizontal ? IconType.CHEVRON_RIGHT : IconType.CHEVRON_DOWN
+          }
           variant={ButtonVariant.ICON}
           className="mx-auto mt-4"
         />
