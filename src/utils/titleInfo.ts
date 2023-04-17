@@ -1,4 +1,4 @@
-import { IMovie, IMovieOptions } from '@/types';
+import { ICharacter, IMovie, IMovieOptions } from '@/types';
 export const getMoviesInfoURL = () => `
   ${process.env.NEXT_PUBLIC_BASE_MOVIE_URL}discover/movie?api_key=${process.env.NEXT_PUBLIC_MOVIE_API_KEY}
 `;
@@ -75,7 +75,7 @@ export const getMovieById = async (id: string): Promise<IMovie> => {
   }
 };
 
-export async function getMovieCast(id: string): Promise<any> {
+export async function getMovieCast(id: string): Promise<ICharacter[]> {
   const res = await fetch(getMovieCreditsURL(id));
 
   if (!res.ok) {

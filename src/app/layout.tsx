@@ -17,7 +17,7 @@ export default function RootLayout({
     <html className={lato.variable} lang="en">
       <body>
         <Navbar />
-        <main className="flex justify-center w-full mx-auto max-w-screen-xl mt-20">
+        <main className="flex justify-center w-full mx-auto max-w-screen-2xl mt-20">
           {children}
         </main>
       </body>

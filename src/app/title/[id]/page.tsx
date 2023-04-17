@@ -33,13 +33,6 @@ export default async function MovieTitle({ params }: IMovieTitle) {
   const movie = await getMovieById(id);
   const cast = await getMovieCast(id);
 
-  const imagesCast = cast.reduce((list: string[], character: any) => {
-    if (character.profile_path) {
-      list = [...list, `${getImageURL(character.profile_path)}`];
-    }
-    return list;
-  }, []);
-
   const titleImage = `${getImageURL(
     movie.backdrop_path || movie.poster_path || ''
   )}`;
@@ -99,7 +92,7 @@ export default async function MovieTitle({ params }: IMovieTitle) {
             />
           </div>
         }
-        slider={<Slider imagesURL={imagesCast} title="Top Cast" />}
+        slider={<Slider cast={cast} title="Top Cast" />}
       />
     </>
   );
