@@ -8,7 +8,7 @@ import { Card, CardVariant, HeroBanner } from '@/components';
 import { Slider } from '@/components/Slider';
 import { BuyButton } from './BuyButton';
 import Image from 'next/image';
-import { CURRENCIES } from '@/constants';
+import { CURRENCIES, TICKET_OPTIONS } from '@/constants';
 
 interface IMovieTitle {
   params: {
@@ -43,7 +43,7 @@ export default async function MovieTitle({ params }: IMovieTitle) {
         <div
           className={
             'w-full h-full bg-gradient-to-b ' +
-            'from-[#050607B3] from-10% via-[#050607D4] via-45% to-[#050607F2] to-60%'
+            'from-[#050607B3] from-10% via-[#050607D4] via-60% to-[#000000f8] to-80%'
           }
         >
           <Image
@@ -62,7 +62,7 @@ export default async function MovieTitle({ params }: IMovieTitle) {
       <HeroBanner
         card={
           <Card
-            className="md:pr-24"
+            className="!w-full lg:w-auto lg:pr-24 "
             variant={CardVariant.HERO_BANNER}
             main={
               <>
@@ -73,21 +73,27 @@ export default async function MovieTitle({ params }: IMovieTitle) {
             footer={
               <>
                 <p className="sm:basis-4/12 text-xl">
-                  {formatCurrency(locale, currency, price, 2)}
+                  From{' '}
+                  {formatCurrency(
+                    locale,
+                    currency,
+                    TICKET_OPTIONS[0].price || price,
+                    2
+                  )}
                 </p>
-                <BuyButton itemId={id} />
+                <BuyButton item={movie} />
               </>
             }
           />
         }
         image={
-          <div>
+          <div className="w-full">
             <Image
               src={titleImage}
               width={750}
               height={750}
               alt={movie.title}
-              className="rounded-3xl object-cover sm:-ml-10 sm:scale-110"
+              className="rounded-3xl object-cover w-full lg:-ml-10 lg:scale-110"
               priority
             />
           </div>
