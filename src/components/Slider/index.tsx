@@ -66,7 +66,7 @@ export const Slider = ({
         handleClick={previousSlide}
         iconType={IconType.CHEVRON_UP}
         variant={ButtonVariant.ICON}
-        className='mx-auto my-4'
+        className="mx-auto my-4"
       />
 
       <div
@@ -90,7 +90,7 @@ export const Slider = ({
         handleClick={nextSlide}
         iconType={IconType.CHEVRON_DOWN}
         variant={ButtonVariant.ICON}
-        className='mx-auto mt-4'
+        className="mx-auto mt-4"
       />
     </div>
   );
