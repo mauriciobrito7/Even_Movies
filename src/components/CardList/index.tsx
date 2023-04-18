@@ -32,9 +32,9 @@ export const CardList = ({ title, items, className }: CardProps) => {
             }
             footer={
               <>
-                <h3 className="w-full mb-2 overflow-ellipsis whitespace-nowrap overflow-hidden">
+                <h4 className="w-full mb-2 overflow-ellipsis whitespace-nowrap overflow-hidden">
                   {item.title}
-                </h3>
+                </h4>
                 <p className="text-neutral-gray-light">
                   Release date: {item.release_date}
                 </p>
