@@ -19,9 +19,14 @@ interface MovieTitle {
 export async function generateMetadata({ params }: MovieTitle) {
   const { id } = params;
   const movie = await getMovieById(id);
+  const titleImage = `${getImageURL(
+    movie.backdrop_path || movie.poster_path || ''
+  )}`;
 
   return {
     title: movie.title,
+    description: movie.overview,
+    image: titleImage,
   };
 }
 

@@ -2,6 +2,7 @@ import '../styles/globals.css';
 import { Lato } from 'next/font/google';
 import { GlobalContextProvider } from '@/components';
 import { Navbar } from '@/components/Navbar';
+import Head from 'next/head';
 
 const lato = Lato({
   weight: ['400', '700'],
@@ -16,6 +17,11 @@ export default function RootLayout({
 }) {
   return (
     <html className={lato.variable} lang="en">
+      <Head>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta charSet="utf-8" />
+        <link rel="icon" href="/public/favicon.png" />
+      </Head>
       <body className="relative">
         <GlobalContextProvider>
           <Navbar />
