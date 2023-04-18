@@ -56,22 +56,23 @@ export const Navbar = () => {
       </Link>
       <div className="relative flex items-center">
         <Button
-          className="bg-transparent !opacity-100"
+          className=" relative bg-transparent !opacity-100"
           iconType={IconType.CART}
           iconClassName="scale-200"
           variant={ButtonVariant.ICON}
           handleClick={toggleDropdown}
-        />
-        {numberOfItems > 0 && (
-          <div
-            className={
-              'absolute flex items-center justify-center -top-3 -right-2 w-4 h-4 ' +
-              ' bg-primary rounded-full p-3 text-white'
-            }
-          >
-            {numberOfItems}
-          </div>
-        )}
+        >
+          {numberOfItems > 0 && (
+            <div
+              className={
+                'absolute flex items-center justify-center -top-3 -right-2 w-4 h-4 ' +
+                ' bg-primary rounded-full p-3 text-white'
+              }
+            >
+              {numberOfItems}
+            </div>
+          )}
+        </Button>
         {dropdownVisible && (
           <div
             ref={dropdownRef}

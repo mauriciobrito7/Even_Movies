@@ -33,7 +33,6 @@ export const BuyButton = ({ item }: IBuyButtonProps) => {
   useEffect(() => {
     const newTotalCost = Object.values(TICKET_OPTIONS).reduce(
       (total, ticket) => {
-        console.log(ticketCounts[ticket.type]);
         const ticketCount = ticketCounts[ticket.type] || 0;
         return total + ticketCount * ticket.price;
       },
