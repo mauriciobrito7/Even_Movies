@@ -1,4 +1,6 @@
 export interface Ticket {
-  type: string;
-  price: number;
+  [key: string]: {
+    type: string;
+    price: number;
+  }
 }

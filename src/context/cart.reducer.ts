@@ -12,6 +12,7 @@ const cartReducer = (state: CartState, action: CartActions): CartState => {
       if (itemIndex !== -1) {
         const newState = [...state];
         newState[itemIndex].quantity += action.payload.quantity;
+        newState[itemIndex].price += action.payload.price;
         return newState;
       } else {
         return [...state, action.payload];

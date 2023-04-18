@@ -31,7 +31,8 @@ export const BuyButton = ({ item }: IBuyButtonProps) => {
   const { addItem } = useCart();
 
   useEffect(() => {
-    const newTotalCost = TICKET_OPTIONS.reduce((total, ticket) => {
+    const newTotalCost = Object.values(TICKET_OPTIONS).reduce((total, ticket) => {
+      console.log(ticketCounts[ticket.type]);
       const ticketCount = ticketCounts[ticket.type] || 0;
       return total + ticketCount * ticket.price;
     }, 0);
@@ -83,7 +84,7 @@ export const BuyButton = ({ item }: IBuyButtonProps) => {
       addItem({
         id: `${element}${item?.id}`,
         name: item?.title || '',
-        price: totalCost,
+        price: ticketCounts[element] * TICKET_OPTIONS[element].price,
         quantity: ticketCounts[element],
         type: element,
       });
@@ -104,24 +105,24 @@ export const BuyButton = ({ item }: IBuyButtonProps) => {
         </h2>
         <div className="w-full">
           <div className="w-full flex mb-4">
-            <h4 className="w-1/2 text-center">Tickets</h4>
+            <h4 className="w-1/2 text-left sm:text-center">Tickets</h4>
             <h4 className="w-1/2 text-center">Quantity</h4>
           </div>
           <div className="w-full flex flex-wrap mt-4">
-            {TICKET_OPTIONS.map((ticket) => (
+            {Object.values(TICKET_OPTIONS).map((ticket) => (
               <div key={ticket.type} className="w-full flex mb-4">
-                <div className="flex justify-center items-center w-1/2">
+                <div className="flex justify-start sm:justify-center items-center w-1/2">
                   <span className=" mr-2 font-bold capitalize">
                     {ticket.type}
                   </span>
                   {formatCurrency(locale, currency, ticket.price, 2)}
                 </div>
-                <div className="flex w-1/2 justify-center items-center">
+                <div className="flex w-1/2 justify-end sm:justify-center items-center">
                   <Button
                     handleClick={() => handleIncrement(ticket.type)}
                     iconType={IconType.PLUS}
                     variant={ButtonVariant.ICON}
-                    className="!w-16"
+                    className="!w-10 lg:!w-16"
                   />
                   <input
                     type="text"
@@ -142,7 +143,7 @@ export const BuyButton = ({ item }: IBuyButtonProps) => {
                     handleClick={() => handleDecrement(ticket.type)}
                     iconType={IconType.MINUS}
                     variant={ButtonVariant.ICON}
-                    className="!w-16"
+                    className="!w-10 lg:!w-16"
                   />
                 </div>
               </div>

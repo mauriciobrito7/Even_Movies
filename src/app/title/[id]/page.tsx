@@ -81,7 +81,7 @@ export default async function MovieTitle({ params }: MovieTitle) {
                   {formatCurrency(
                     locale,
                     currency,
-                    TICKET_OPTIONS[0].price || price,
+                    TICKET_OPTIONS.child.price || price,
                     2
                   )}
                 </p>
