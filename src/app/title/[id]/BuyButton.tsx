@@ -31,11 +31,14 @@ export const BuyButton = ({ item }: IBuyButtonProps) => {
   const { addItem } = useCart();
 
   useEffect(() => {
-    const newTotalCost = Object.values(TICKET_OPTIONS).reduce((total, ticket) => {
-      console.log(ticketCounts[ticket.type]);
-      const ticketCount = ticketCounts[ticket.type] || 0;
-      return total + ticketCount * ticket.price;
-    }, 0);
+    const newTotalCost = Object.values(TICKET_OPTIONS).reduce(
+      (total, ticket) => {
+        console.log(ticketCounts[ticket.type]);
+        const ticketCount = ticketCounts[ticket.type] || 0;
+        return total + ticketCount * ticket.price;
+      },
+      0
+    );
 
     setTotalCost(newTotalCost);
   }, [ticketCounts]);

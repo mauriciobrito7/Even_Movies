@@ -13,10 +13,7 @@ export const Navbar = () => {
   const { locale, currency } = CURRENCIES.unitedStates;
   const { state: cart, addItem, removeItem } = useCart();
   const numberOfItems = cart.reduce((acc, item) => acc + item.quantity, 0);
-  const totalPrice = cart.reduce(
-    (acc, item) => acc + item.price,
-    0
-  );
+  const totalPrice = cart.reduce((acc, item) => acc + item.price, 0);
   const [dropdownVisible, setDropdownVisible] = useState(false);
   const dropdownRef = useRef(null);
 
@@ -83,7 +80,8 @@ export const Navbar = () => {
             aria-label="Close dropdown"
             className={
               'absolute p-8 top-16 w-screen -translate-y-1 -right-8 sm:-right-2 sm:w-80 bg-gradient-to-b ' +
-              ' from-neutral-gray-dark to-neutral-gray  border border-neutral-gray shadow-lg shadow-black rounded'
+              ' from-neutral-gray-dark to-neutral-gray border border-neutral-gray ' +
+              ' shadow-lg shadow-black rounded'
             }
           >
             <div className="overflow-y-auto max-h-96">
@@ -96,12 +94,7 @@ export const Navbar = () => {
                   }
                 >
                   {item.type} {item.name} ({item.quantity}) -{' '}
-                  {formatCurrency(
-                    locale,
-                    currency,
-                    item.price,
-                    2
-                  )}
+                  {formatCurrency(locale, currency, item.price, 2)}
                   <div className="flex ml-auto gap-2">
                     <Button
                       className="!w-24 !h-10"
