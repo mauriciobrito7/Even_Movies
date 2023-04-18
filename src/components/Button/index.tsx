@@ -18,6 +18,7 @@ export interface ButtonProps {
   iconPosition?: AssetPosition;
   iconClassName?: string;
   variant?: ButtonVariant;
+  children?: React.ReactNode;
 }
 
 type VariantCssClasses = {
@@ -66,11 +67,11 @@ export const Button = ({
   iconClassName,
   iconPosition,
   variant = ButtonVariant.PRIMARY,
+  children,
 }: ButtonProps) => {
   return (
     <button
       className={`
-        focus:ring-1 focus:ring-neutral-dark-light active:bg-black
         ${getButtonCssClasses(variant, 'container')}
         ${iconType && iconPosition ? iconPositionClasses[iconPosition] : ''} 
         ${className ?? ''}
@@ -90,6 +91,7 @@ export const Button = ({
       {iconType && (
         <Icon className={iconClassName ?? ''} type={iconType} size={iconSize} />
       )}
+      {children && children}
     </button>
   );
 };

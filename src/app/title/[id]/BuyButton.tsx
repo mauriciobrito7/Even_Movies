@@ -33,7 +33,6 @@ export const BuyButton = ({ item }: IBuyButtonProps) => {
   useEffect(() => {
     const newTotalCost = Object.values(TICKET_OPTIONS).reduce(
       (total, ticket) => {
-        console.log(ticketCounts[ticket.type]);
         const ticketCount = ticketCounts[ticket.type] || 0;
         return total + ticketCount * ticket.price;
       },
@@ -155,7 +154,7 @@ export const BuyButton = ({ item }: IBuyButtonProps) => {
         </div>
 
         <p className="text-neutral-gray-light my-4 text-center italic">
-          You can only buy {MAX_TICKET_COUNT} tickets tickets
+          You can only buy {MAX_TICKET_COUNT} tickets per type
         </p>
         <p className="mt-4 font-bold text-center text-xl">
           Total cost: {formatCurrency(locale, currency, totalCost, 2)}
