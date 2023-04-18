@@ -11,11 +11,7 @@ export interface Slider {
   orientation?: 'horizontal' | 'vertical';
 }
 
-export const Slider = ({
-  title,
-  cast,
-  orientation = 'horizontal',
-}: Slider) => {
+export const Slider = ({ title, cast, orientation = 'horizontal' }: Slider) => {
   const scrollRef: React.RefObject<HTMLDivElement> = useRef(null);
   const normalizedCast = cast.reduce(
     (
