@@ -10,13 +10,13 @@ import { BuyButton } from './BuyButton';
 import Image from 'next/image';
 import { CURRENCIES, TICKET_OPTIONS } from '@/constants';
 
-interface IMovieTitle {
+interface MovieTitle {
   params: {
     id: string;
   };
 }
 
-export async function generateMetadata({ params }: IMovieTitle) {
+export async function generateMetadata({ params }: MovieTitle) {
   const { id } = params;
   const movie = await getMovieById(id);
 
@@ -27,7 +27,7 @@ export async function generateMetadata({ params }: IMovieTitle) {
 
 const price = 10;
 
-export default async function MovieTitle({ params }: IMovieTitle) {
+export default async function MovieTitle({ params }: MovieTitle) {
   const { id } = params;
   const { locale, currency } = CURRENCIES.unitedStates;
   const movie = await getMovieById(id);

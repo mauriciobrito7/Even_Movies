@@ -1,4 +1,4 @@
-export interface ITicket {
+export interface Ticket {
   type: string;
   price: number;
 }

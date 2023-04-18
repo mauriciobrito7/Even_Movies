@@ -1,4 +1,4 @@
-import { ICharacter, IMovie, IMovieOptions } from '@/types';
+import { Character, Movie, MovieOptions } from '@/types';
 export const getMoviesInfoURL = () => `
   ${process.env.NEXT_PUBLIC_BASE_MOVIE_URL}discover/movie?api_key=${process.env.NEXT_PUBLIC_MOVIE_API_KEY}
 `;
@@ -12,7 +12,7 @@ export const getImageURL = (imagePath: string) =>
 export const getMovieCreditsURL = (id: string) =>
   `${process.env.NEXT_PUBLIC_BASE_MOVIE_URL}movie/${id}/credits?api_key=${process.env.NEXT_PUBLIC_MOVIE_API_KEY}`;
 
-export async function getMovies(options?: IMovieOptions): Promise<IMovie[]> {
+export async function getMovies(options?: MovieOptions): Promise<Movie[]> {
   try {
     const { language, sortBy, releaseDate, minVoteCount } = options || {};
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -58,7 +58,7 @@ export async function getMovies(options?: IMovieOptions): Promise<IMovie[]> {
   }
 }
 
-export const getMovieById = async (id: string): Promise<IMovie> => {
+export const getMovieById = async (id: string): Promise<Movie> => {
   try {
     const res = await fetch(getMovieInfoURL(id));
 
@@ -75,7 +75,7 @@ export const getMovieById = async (id: string): Promise<IMovie> => {
   }
 };
 
-export async function getMovieCast(id: string): Promise<ICharacter[]> {
+export async function getMovieCast(id: string): Promise<Character[]> {
   const res = await fetch(getMovieCreditsURL(id));
 
   if (!res.ok) {

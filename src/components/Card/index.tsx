@@ -5,7 +5,7 @@ export enum CardVariant {
   HERO_BANNER = 'HERO_BANNER',
 }
 
-export interface ICardProps {
+export interface CardProps {
   variant?: CardVariant;
   className?: string;
   header?: JSX.Element;
@@ -65,7 +65,7 @@ export const Card = ({
   href,
   variant = CardVariant.ITEM,
   footer,
-}: ICardProps) => {
+}: CardProps) => {
   return (
     <Wrapper url={href}>
       <article

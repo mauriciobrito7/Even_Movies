@@ -7,7 +7,7 @@ export enum ButtonVariant {
   ICON = 'ICON',
 }
 
-export interface IButtonProps {
+export interface ButtonProps {
   label?: string;
   handleClick?: () => void;
   labelClassName?: string;
@@ -66,7 +66,7 @@ export const Button = ({
   iconClassName,
   iconPosition,
   variant = ButtonVariant.PRIMARY,
-}: IButtonProps) => {
+}: ButtonProps) => {
   return (
     <button
       className={`

@@ -12,7 +12,7 @@ export enum ModalSize {
   FULL = 'full',
 }
 
-export interface IModalProps {
+export interface ModalProps {
   isOpen: boolean;
   onClose: () => void;
   children: React.ReactNode;
@@ -36,7 +36,7 @@ export const Modal = ({
   children,
   size = ModalSize.XXXLARGE,
   className,
-}: IModalProps) => {
+}: ModalProps) => {
   useEffect(() => {
     const handleKeyUp = (event: KeyboardEvent) => {
       if (event.key === 'Escape') {
