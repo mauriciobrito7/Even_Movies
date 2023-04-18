@@ -13,5 +13,5 @@ export const breakpoints: IBreakpoints = {
   xldesktop: 1280,
   desktop: 1024,
   tablet: 720,
-  mobile: 320,
+  mobile: 480,
 };
