@@ -1,6 +1,6 @@
 const customTheme = {
   screens: {
-    sm: '320px',
+    sm: '480px',
     md: '720px',
     lg: '1024px',
     xl: '1280px',
@@ -83,6 +83,11 @@ const customTheme = {
       120: '48rem', // 768px
       124: '52rem', // 832px
       128: '56rem', // 896px
+    },
+    scale: {
+      200: '2',
+      225: '2.25',
+      250: '2.5',
     },
   },
 };

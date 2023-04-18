@@ -1,5 +1,6 @@
 import '../styles/globals.css';
 import { Lato } from 'next/font/google';
+import { GlobalContextProvider } from '@/components';
 import { Navbar } from '@/components/Navbar';
 
 const lato = Lato({
@@ -16,10 +17,12 @@ export default function RootLayout({
   return (
     <html className={lato.variable} lang="en">
       <body className="relative">
-        <Navbar />
-        <main className="flex justify-center w-full mx-auto max-w-screen-2xl">
-          <div className="flex w-full mt-20">{children}</div>
-        </main>
+        <GlobalContextProvider>
+          <Navbar />
+          <main className="flex justify-center w-full mx-auto max-w-screen-2xl">
+            <div className="flex w-full mt-20">{children}</div>
+          </main>
+        </GlobalContextProvider>
       </body>
     </html>
   );
