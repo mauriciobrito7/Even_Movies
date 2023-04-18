@@ -9,6 +9,7 @@ import {
   CURRENCIES,
 } from '@/constants';
 import { formatCurrency } from '@/utils';
+import { useCart } from '@/hooks/';
 
 export interface IBuyButtonProps {
   item?: IMovie;
@@ -27,12 +28,23 @@ export const BuyButton = ({ item }: IBuyButtonProps) => {
   );
   const [totalCost, setTotalCost] = useState(0);
   const { locale, currency } = CURRENCIES.unitedStates;
+  const { addItem } = useCart();
+
+  useEffect(() => {
+    const newTotalCost = TICKET_OPTIONS.reduce((total, ticket) => {
+      const ticketCount = ticketCounts[ticket.type] || 0;
+      return total + ticketCount * ticket.price;
+    }, 0);
+
+    setTotalCost(newTotalCost);
+  }, [ticketCounts]);
 
   const openModal = () => {
     setIsOpen(true);
   };
 
   const closeModal = () => {
+    setTicketCounts(initialTicketsCounts);
     setIsOpen(false);
   };
 
@@ -64,14 +76,19 @@ export const BuyButton = ({ item }: IBuyButtonProps) => {
     }));
   };
 
-  useEffect(() => {
-    const newTotalCost = TICKET_OPTIONS.reduce((total, ticket) => {
-      const ticketCount = ticketCounts[ticket.type] || 0;
-      return total + ticketCount * ticket.price;
-    }, 0);
-
-    setTotalCost(newTotalCost);
-  }, [ticketCounts]);
+  const handleAddToCart = () => {
+    if (!item) return;
+    Object.keys(ticketCounts).forEach((element) => {
+      if (ticketCounts[element] === 0 || '') return;
+      addItem({
+        id: `${element}${item?.id}`,
+        name: item?.title || '',
+        price: totalCost,
+        quantity: ticketCounts[element],
+        type: element,
+      });
+    });
+  };
 
   return (
     <>
@@ -150,7 +167,10 @@ export const BuyButton = ({ item }: IBuyButtonProps) => {
           <Button
             className="w-full md:w-64 capitalize"
             label="Confirm purchase"
-            handleClick={closeModal}
+            handleClick={() => {
+              handleAddToCart();
+              closeModal();
+            }}
           />
         </div>
       </Modal>
