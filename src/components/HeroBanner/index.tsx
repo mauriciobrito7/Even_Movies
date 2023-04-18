@@ -14,16 +14,15 @@ export const HeroBanner = ({ className, card, image, slider }: IHeroBanner) => {
   const isTablet = windowWidth <= breakpoints.desktop;
   return (
     <div
-      className={`w-full p-8 mt-10 flex justify-between items-center ${
-        !isTablet ? '' : 'flex-wrap gap-8'
-      }
+      className={`w-full p-8 mt-10 flex justify-between items-center flex-wrap gap-8 lg:!flex-nowrap lg:!gap-0
         ${className ?? ''}
       `}
     >
       <div
-        className={`flex justify-center items-center ${
-          !isTablet ? '' : 'flex-wrap flex-col-reverse gap-8'
-        }`}
+        className={
+          'flex justify-center items-center flex-wrap flex-col-reverse ' +
+          ' gap-8 lg:!flex-nowrap lg:!flex-row lg:!gap-0'
+        }
       >
         {card && card}
         {image && image}

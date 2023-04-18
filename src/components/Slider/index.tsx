@@ -11,7 +11,11 @@ export interface ISlider {
   orientation?: 'horizontal' | 'vertical';
 }
 
-export const Slider = ({ title, cast, orientation = 'vertical' }: ISlider) => {
+export const Slider = ({
+  title,
+  cast,
+  orientation = 'horizontal',
+}: ISlider) => {
   const scrollRef: React.RefObject<HTMLDivElement> = useRef(null);
   const normalizedCast = cast.reduce(
     (
@@ -74,15 +78,11 @@ export const Slider = ({ title, cast, orientation = 'vertical' }: ISlider) => {
     <div
       className={`
         bg-gradient-to-b from-neutral-gray to-neutral-gray-dark 
-        rounded-3xl px-4 py-8 lg:px-8 flex flex-wrap ${containerClass}
+        rounded-3xl px-4 py-8 lg:px-8 flex flex-wrap w-full lg:flex-col lg:w-auto ${containerClass}
       `}
     >
       {title && <h3 className="text-center w-full mb-6 lg:mb-0">{title}</h3>}
-      <div
-        className={`flex items-center gap-4 w-full ${
-          !isHorizontal && 'flex-col'
-        }`}
-      >
+      <div className="flex items-center gap-4 w-full lg:flex-col">
         <Button
           handleClick={previousSlide}
           iconType={isHorizontal ? IconType.CHEVRON_LEFT : IconType.CHEVRON_UP}
@@ -91,7 +91,7 @@ export const Slider = ({ title, cast, orientation = 'vertical' }: ISlider) => {
         />
 
         <div
-          className={`w-full max-h-96 overflow-auto flex gap-6 ${containerClass}`}
+          className={`w-full max-h-96 overflow-auto flex gap-6 lg:flex-col lg:w-auto ${containerClass}`}
           ref={scrollRef}
         >
           {normalizedCast.map((character, index) => (
