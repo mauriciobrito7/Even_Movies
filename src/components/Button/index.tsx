@@ -70,7 +70,7 @@ export const Button = ({
   return (
     <button
       className={`
-        cursor-pointer
+        focus:ring-1 focus:ring-neutral-dark-light active:bg-black
         ${getButtonCssClasses(variant, 'container')}
         ${iconType && iconPosition ? iconPositionClasses[iconPosition] : ''} 
         ${className ?? ''}

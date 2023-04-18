@@ -63,6 +63,11 @@ h6 {
   line-height: 1.2;
 }
 
+a:focus, button:focus {
+  outline: none;
+  cursor: pointer;
+}
+
 ::-webkit-scrollbar {
   inline-size: .5rem;
   block-size: .5rem;

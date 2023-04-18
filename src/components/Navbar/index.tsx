@@ -1,5 +1,5 @@
 'use client';
-import BrandSvg from '../../../public/brand.svg';
+import BrandSvg from '../../../public/brand.png';
 import Image from 'next/image';
 import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
@@ -13,10 +13,7 @@ export const Navbar = () => {
   const { locale, currency } = CURRENCIES.unitedStates;
   const { state: cart, addItem, removeItem } = useCart();
   const numberOfItems = cart.reduce((acc, item) => acc + item.quantity, 0);
-  const totalPrice = cart.reduce(
-    (acc, item) => acc + item.price * item.quantity,
-    0
-  );
+  const totalPrice = cart.reduce((acc, item) => acc + item.price, 0);
   const [dropdownVisible, setDropdownVisible] = useState(false);
   const dropdownRef = useRef(null);
 
@@ -61,14 +58,14 @@ export const Navbar = () => {
         <Button
           className="bg-transparent !opacity-100"
           iconType={IconType.CART}
-          iconClassName="scale-225"
+          iconClassName="scale-200"
           variant={ButtonVariant.ICON}
           handleClick={toggleDropdown}
         />
         {numberOfItems > 0 && (
           <div
             className={
-              'absolute flex items-center justify-center -top-4 -right-2 w-4 h-4 ' +
+              'absolute flex items-center justify-center -top-3 -right-2 w-4 h-4 ' +
               ' bg-primary rounded-full p-3 text-white'
             }
           >
@@ -82,26 +79,22 @@ export const Navbar = () => {
             role="button"
             aria-label="Close dropdown"
             className={
-              'absolute top-16 w-screen -translate-y-1 -right-8 sm:-right-2 sm:w-80 bg-gradient-to-b ' +
-              ' from-neutral-gray to-neutral-gray-dark border border-neutral-gray shadow-lg rounded'
+              'absolute p-8 top-16 w-screen -translate-y-1 -right-8 sm:-right-2 sm:w-80 bg-gradient-to-b ' +
+              ' from-neutral-gray-dark to-neutral-gray border border-neutral-gray ' +
+              ' shadow-lg shadow-black rounded'
             }
           >
-            <div className="py-2">
+            <div className="overflow-y-auto max-h-96">
               {cart.map((item) => (
                 <div
                   key={item.id}
                   className={
-                    'flex flex-wrap gap-2 px-4 py-2 border-b border-neutral-gray ' +
+                    'flex flex-wrap gap-2 px-4 py-2 border-b border-neutral-gray' +
                     ' text-white capitalize'
                   }
                 >
                   {item.type} {item.name} ({item.quantity}) -{' '}
-                  {formatCurrency(
-                    locale,
-                    currency,
-                    item.price * item.quantity,
-                    2
-                  )}
+                  {formatCurrency(locale, currency, item.price, 2)}
                   <div className="flex ml-auto gap-2">
                     <Button
                       className="!w-24 !h-10"
