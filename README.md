@@ -2,8 +2,6 @@
 
 ![Event APP desktop](https://drive.google.com/uc?id=1nHLy_ekPHagESJdypNlGZn5CxieZ__Ah)
 
---
-
 ## Features
 
 - ⚛️ [React 18](https://reactjs.org/)
