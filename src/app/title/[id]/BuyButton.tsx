@@ -1,7 +1,7 @@
 'use client';
 import { useEffect, useState } from 'react';
 import { Button, Modal, IconType, ButtonVariant } from '@/components';
-import { IMovie } from '@/types';
+import { Movie } from '@/types';
 import {
   TICKET_OPTIONS,
   MAX_TICKET_COUNT,
@@ -12,7 +12,7 @@ import { formatCurrency } from '@/utils';
 import { useCart } from '@/hooks/';
 
 export interface IBuyButtonProps {
-  item?: IMovie;
+  item?: Movie;
 }
 
 const initialTicketsCounts = {

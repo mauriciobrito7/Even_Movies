@@ -78,3 +78,9 @@ h6 {
   background: var(--neutral-gray);
   border-radius: 1rem;
 }
+
+@layer utilities {
+  .loader {
+    border-radius: 50%;
+  }
+}

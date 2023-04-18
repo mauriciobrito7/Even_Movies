@@ -2,14 +2,14 @@
 import React from 'react';
 import { useWindowWidth } from '@/hooks';
 import { breakpoints } from '@/styles/breakpoints';
-export interface IHeroBanner {
+export interface HeroBanner {
   card?: JSX.Element;
   image?: JSX.Element;
   slider?: JSX.Element;
   className?: string;
 }
 
-export const HeroBanner = ({ className, card, image, slider }: IHeroBanner) => {
+export const HeroBanner = ({ className, card, image, slider }: HeroBanner) => {
   const { windowWidth = 0 } = useWindowWidth();
   const isTablet = windowWidth <= breakpoints.desktop;
   return (

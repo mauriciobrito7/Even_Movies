@@ -2,20 +2,16 @@
 import { useRef } from 'react';
 import Image from 'next/image';
 import { Button, ButtonVariant, IconType } from '@/components';
-import { ICharacter } from '@/types';
+import { Character } from '@/types';
 import { getImageURL } from '@/utils';
 
-export interface ISlider {
-  cast: ICharacter[];
+export interface Slider {
+  cast: Character[];
   title?: string;
   orientation?: 'horizontal' | 'vertical';
 }
 
-export const Slider = ({
-  title,
-  cast,
-  orientation = 'horizontal',
-}: ISlider) => {
+export const Slider = ({ title, cast, orientation = 'horizontal' }: Slider) => {
   const scrollRef: React.RefObject<HTMLDivElement> = useRef(null);
   const normalizedCast = cast.reduce(
     (
@@ -23,7 +19,7 @@ export const Slider = ({
         image: string;
         name: string;
       }[],
-      character: ICharacter
+      character: Character
     ) => {
       if (character.profile_path) {
         list = [

@@ -7,6 +7,9 @@ import { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'Even Movies',
   description: 'Find popular movies and tv shows',
+  icons: {
+    icon: '/favicon.png',
+  },
 };
 
 export default async function Home() {

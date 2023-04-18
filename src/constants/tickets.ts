@@ -1,6 +1,6 @@
-import { ITicket } from '@/types/ticket';
+import { Ticket } from '@/types/ticket';
 
-export const TICKET_OPTIONS: ITicket[] = [
+export const TICKET_OPTIONS: Ticket[] = [
   { type: 'child', price: 5 },
   { type: 'senior', price: 7 },
   { type: 'adult', price: 10 },

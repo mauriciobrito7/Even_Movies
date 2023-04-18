@@ -1,17 +1,17 @@
-import { IMovie } from '@/types/movie';
+import { Movie } from '@/types/movie';
 import { Card } from '../Card';
 import { ROUTES } from '@/constants';
 import { getImageURL } from '@/utils';
 import Image from 'next/image';
 
-interface ICardProps {
-  items: IMovie[];
+interface CardProps {
+  items: Movie[];
   title: string;
   limit?: number;
   className?: string;
 }
 
-export const CardList = ({ title, items, className }: ICardProps) => {
+export const CardList = ({ title, items, className }: CardProps) => {
   return (
     <div className={`flex flex-wrap gap-4 my-10 px-8 ${className ?? ''}`}>
       <h2 className="font-bold">{title}</h2>

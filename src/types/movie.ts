@@ -1,4 +1,4 @@
-export interface IMovie {
+export interface Movie {
   adult: boolean;
   backdrop_path: string | null;
   genre_ids: number[];
@@ -15,7 +15,7 @@ export interface IMovie {
   vote_count: number;
 }
 
-export interface IMovieOptions {
+export interface MovieOptions {
   language?: 'en-US' | 'es-ES';
   sortBy?: {
     key: 'primary_release_date' | 'popularity' | 'vote_average';
@@ -28,7 +28,7 @@ export interface IMovieOptions {
   minVoteCount?: number;
 }
 
-export interface ICharacter {
+export interface Character {
   adult: false;
   gender: number;
   id: number;
