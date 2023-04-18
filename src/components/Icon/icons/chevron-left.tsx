@@ -8,6 +8,7 @@ export const ChevronLeft = (
     viewBox="0 0 448 512"
     {...props}
     style={{ transform: 'rotate(-90deg)' }}
+    fill="currentColor"
   >
     <path
       fill="currentColor"

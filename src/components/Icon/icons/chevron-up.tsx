@@ -6,6 +6,7 @@ export const ChevronUp = (
     aria-hidden="true"
     data-icon="chevron-up"
     viewBox="0 0 448 512"
+    fill="currentColor"
     {...props}
   >
     <path

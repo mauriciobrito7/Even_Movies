@@ -3,8 +3,8 @@ export const Plus = (
 ) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    fill="none"
     data-icon="plus"
+    fill="currentColor"
     {...props}
   >
     <path
