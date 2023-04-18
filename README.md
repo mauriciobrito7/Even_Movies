@@ -1,5 +1,9 @@
 # ⚛️⚡ Event Movie App
 
+![Event APP desktop](https://drive.google.com/uc?id=1nHLy_ekPHagESJdypNlGZn5CxieZ__Ah)
+
+--
+
 ## Features
 
 - ⚛️ [React 18](https://reactjs.org/)
@@ -24,7 +28,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ### Main Scripts
 
-- `dev`: run the development server.
+- `dev`: Run the development server.
 - `build`: Builds project.
 - `lint:fix`: Applies linting based on the rules defined in **.eslintrc.js**.
 - `format`: Formats files using the prettier rules defined in **.prettierrc**.
