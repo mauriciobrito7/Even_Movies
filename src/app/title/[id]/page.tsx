@@ -27,6 +27,11 @@ export async function generateMetadata({ params }: MovieTitle) {
     title: movie.title,
     description: movie.overview,
     image: titleImage,
+    openGraph: {
+      title: movie.title,
+      description: movie.overview,
+      images: [{ url: titleImage }],
+    },
   };
 }
 
