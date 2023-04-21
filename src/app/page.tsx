@@ -1,7 +1,6 @@
 import { CardList } from '@/components/';
 import { getPeriodOfTime, getMovies } from '@/utils';
 import { Time } from '@/types';
-
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -10,6 +9,7 @@ export const metadata: Metadata = {
   icons: {
     icon: '/favicon.png',
   },
+  viewport: 'width=device-width, initial-scale=1',
 };
 
 export default async function Home() {
